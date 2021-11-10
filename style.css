@@ -41,13 +41,23 @@ main img {
   flex-direction: column;
 }
 
+.group img {
+  width: 100%;
+}
+
 .item {
   flex: 1;
   margin: 10px;
 }
 
-.item-double {
-  flex: 2;
+.item-text-1 {
+  flex: 1;
+  margin: 10px;
+}
+
+.item-text-2 {
+  flex: 1;
+  margin: 10px;
 }
 
 /* -------  Navigation ------- */
@@ -60,12 +70,25 @@ header {
 
 .logo {
   font-family: "Pangolin", cursive;
+  margin: 0;
+  padding-top: 20px;
   font-size: 72px;
   color: #fff;
 }
 
+header nav {
+  display: flex;
+  justify-content: center;
+}
+
 header nav ul li {
   list-style-type: none;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
 }
 
 header nav ul li a {
@@ -81,18 +104,36 @@ header nav ul li a:hover {
 
 /* -------  Search Form ------- */
 form {
+  display: flex;
+  flex-flow: column nowrap;
   border: 2px solid #ff385c;
   padding: 10px;
 }
 
-form label {
-  font-weight: bold;
+form .row {
+  display: flex;
+  justify-content: space-between;
 }
 
-form select,
-form input {
+form label {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+form select {
   margin-bottom: 20px;
   width: 180px;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 1px 0px;
+}
+
+form input {
+  margin-bottom: 20px;
+  height: 24px;
+  padding: 0px 0px;
+  width: 180px;
+  box-sizing: border-box;
 }
 
 form button {
@@ -117,3 +158,60 @@ footer p {
 }
 
 /* -------  Media Query ------- */
+@media all and (min-width: 480px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+  }
+
+  header .title {
+    margin: 14px 0;
+    font-size: 48px;
+    padding-bottom: 10px;
+  }
+
+  header nav {
+    margin-top: 16px;
+  }
+
+  header nav ul li a:hover {
+    color: #bdbdbd;
+  }
+
+  form {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  form .row {
+    flex-flow: column nowrap;
+  }
+
+  form button {
+    max-width: 6em;
+  }
+
+  form label {
+    padding-bottom: 5px;
+  }
+
+  .group {
+    flex-flow: row nowrap;
+  }
+
+  .item-text-1 {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item-text-2 {
+    flex: 2;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
